@@ -60,3 +60,43 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Front
+
+## html
+gem 'haml-rails'      # haml
+
+## css
+gem 'bootstrap-sass'  # bootstrap
+gem 'compass-rails', github: 'Compass/compass-rails'   # compass
+
+## js
+gem 'jquery-rails'    # jquery
+
+# Back
+
+## lint
+group :development, :test do
+  gem 'rubocop'
+end
+
+## debug
+group :development, :test do
+  gem 'better_errors'       # エラー画面を改善する
+  gem 'binding_of_caller'   # エラー画面の変数を表示する
+  gem 'pry-rails'           # consoleでirbではなくpryを使う
+  gem 'pry-byebug'          # pryでステップ実行できるようにする
+  gem 'awesome_print'       # ログをわかりやすくする
+  gem 'hirb'                # コンソールでModelを表形式で表示
+  gem 'hirb-unicode'        # hirbを日本語に対応させる
+  gem 'guard-livereload', '~> 2.5', require: false
+end
+
+# test
+group :development, :test do
+  gem 'rspec'               # テスト実行
+  gem 'rspec-rails'         # テスト実行
+  gem 'factory_bot_rails'   # テスト用Model作成支援
+  gem 'database_cleaner'    # テスト後にDBをクリアする
+  gem 'faker'               # ランダム文字列を生成
+end
